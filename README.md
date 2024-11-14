@@ -7,74 +7,71 @@ To implement Opening and Closing using Python and OpenCV.
 2. OpenCV
 ## Algorithm:
 ### Step1:
-<br>
+Import the necessary packages
 
 
 ### Step2:
-<br>
+Create the Text using cv2.putText
 
 ### Step3:
-<br>
+Create the structuring element
 
 ### Step4:
-<br>
+Use Opening operation
 
 ### Step5:
-<br>
+Use Closing Operation
 
  
 ## Program:
-
-``` Python
-# Import the necessary packages
-
-
-
-# Create the Text using cv2.putText
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
 
+image = cv2.imread("demo.png")  
 
-# Create the structuring element
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
 
+opening_image = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
 
+closing_image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
 
-# Use Opening operation
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+opening_image_rgb = cv2.cvtColor(opening_image, cv2.COLOR_BGR2RGB)
+closing_image_rgb = cv2.cvtColor(closing_image, cv2.COLOR_BGR2RGB)
 
+plt.figure(figsize=(10, 5))
 
+plt.subplot(1, 3, 1)
+plt.imshow(image_rgb)
+plt.title("Original Image")
+plt.axis("off")
 
+plt.subplot(1, 3, 2)
+plt.imshow(opening_image_rgb)
+plt.title("Opening Operation")
+plt.axis("off")
 
-# Use Closing Operation
+plt.subplot(1, 3, 3)
+plt.imshow(closing_image_rgb)
+plt.title("Closing Operation")
+plt.axis("off")
 
-
-
-
+plt.tight_layout()
+plt.show()
 
 ```
 ## Output:
 
-### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+## Display the input Image , Display the result of Opening , Display the result of Closing
 
-### Display the result of Opening
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![Screenshot 2024-11-14 154825](https://github.com/user-attachments/assets/56ef8243-b0e0-4950-9238-657e2b1163e6)
 
-### Display the result of Closing
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+
 
 ## Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
